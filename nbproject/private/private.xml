@@ -4,6 +4,8 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/xampp/laravel_practice/.env</file>
+            <file>file:/C:/xampp/laravel_practice/database/migrations/2019_11_16_145218_create_books_table.php</file>
+            <file>file:/C:/xampp/laravel_practice/database/migrations/2014_10_12_000000_create_users_table.php</file>
             <file>file:/C:/xampp/laravel_practice/config/database.php</file>
         </group>
     </open-files>
