@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Book;
 
 class BookController extends Controller
 {
@@ -13,26 +14,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        $books = [
-            'book1' => [
-                'id' => 1,
-                'name' => 'name1',
-                'price' => 1000
-            ],
-            'book2' => [
-                'id' => 2,
-                'name' => 'name2',
-                'price' => 2000
-            ]
-        ];
-        
-        $book = [
-            'id' => 1,
-            'name' => 'name1',
-            'price' => 1000
-        ];
-        
-        $data = ['book' => 'bookname'];
+        $books = Book::all();
         
         return view('book/index', compact('books'));
     }
@@ -77,7 +59,7 @@ class BookController extends Controller
      */
     public function edit($id)
     {
-        $book = "book1";
+        $book = Book::findOrFail($id);
         
         return view('book/edit', compact('book'));
     }
