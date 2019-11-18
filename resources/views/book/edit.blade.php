@@ -5,7 +5,7 @@
 <div class="container ops-main">
 <div class="row">
   <div class="col-md-12">
-    <h3 class="ops-title">書籍一覧</h3>
+    <h3 class="ops-title">{{ $book->name }}</h3>
   </div>
 </div>
 <div class="row">
@@ -19,14 +19,19 @@
         <th class="text-center">削除</th>
       </tr>
       
-      @foreach($books as $book)
+      <form action="/book/{{ $book->id }}" method="POST">
+        <input type="hidden" name="_method" value="PUT">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        <div class="form-group">
+            <label for="name">書籍名</label>
+            <input type="text" class="form-control" name="name" value="{{ $book->id }}">
       <tr>
         <td>
           <a href="/book/{{ $book->id }}/edit">{{ $book->id }}</a>
         </td>
-        <td>{{ $book->name }}</td>
+        <td><input type="text" value={{ $book->name }}</td>
         <td>{{ $book->price }}</td>
-        <td>{{ $book->author}}</td>
+        <td>{{ $book->author }}</td>
         <td>
           <form action="/book/{{ $book->id }}" method="post">
             <input type="hidden" name="_method" value="DELETE">
@@ -35,7 +40,8 @@
           </form>
         </td>
       </tr>
-      @endforeach
+      </form>
+
     </table>
     <div><a href="/book/create" class="btn btn-default">新規作成</a></div>
   </div>
